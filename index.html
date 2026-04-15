@@ -265,6 +265,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--white);min-height:
         <input class="tb-in" id="tb-name" type="text" value="John Smith" placeholder="Full name">
       </div>
       <div class="tb-f">
+        <div class="tb-lbl">Trade Number ID</div>
+        <input class="tb-in" id="tb-trade" type="text" value="" placeholder="Trade Number ID">
+      </div>
+      <div class="tb-f">
+        <div class="tb-lbl">Client Email</div>
+        <input class="tb-in" id="tb-email" type="email" value="" placeholder="client@email.com">
+      </div>
+      <div class="tb-f">
         <div class="tb-lbl">Account ID</div>
         <input class="tb-in" id="tb-acc" type="text" value="24694" placeholder="Account ID">
       </div>
@@ -313,7 +321,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--white);min-height:
         <div class="party">
           <div class="party-t">Client</div>
           <p><strong id="d-name">John Smith</strong><br>
-          Email: —<br>ID Number: —<br>Account ID: <span id="d-acc">24694</span></p>
+          Email: <span id="d-email">—</span><br>Trade Number ID: <span id="d-trade">—</span><br>Account ID: <span id="d-acc">24694</span></p>
         </div>
         <div class="party">
           <div class="party-t">Company</div>
@@ -488,6 +496,10 @@ function buildAmt() {
 }
 
 function apply() {
+  var tr = document.getElementById('tb-trade').value.trim();
+  if (tr) document.getElementById('d-trade').textContent = tr;
+  var em = document.getElementById('tb-email').value.trim();
+  if (em) document.getElementById('d-email').textContent = em;
   var sg = document.getElementById('tb-signer').value.trim();
   if (sg) document.getElementById('d-signer').textContent = sg;
   var n = document.getElementById('tb-name').value.trim();
